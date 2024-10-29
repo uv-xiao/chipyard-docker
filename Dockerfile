@@ -43,6 +43,7 @@ RUN \
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh" && \
     printf '\nyes\n\n\n' | bash Miniforge3-$(uname)-$(uname -m).sh && \
     eval "$(/root/miniforge3/bin/conda shell.bash hook)" && \
+    echo "source /root/miniforge3/bin/activate" >> ~/.bashrc && \
     conda install -n base conda-libmamba-solver && \
     conda config --set solver libmamba && \
     conda install -n base conda-lock==1.4.0 
